@@ -33,7 +33,7 @@ public class LogginServiceImpl implements LogginService{
     @Override
     public boolean authenticate(String username, String password) {
 
-        User user = userService.getUserByUsername(username);
+        User user = userService.getUser(username);
 
         if(user == null) {
             return false;

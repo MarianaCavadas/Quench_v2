@@ -6,9 +6,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
-@Entity
-@Table(name = "poll")
-public class Poll extends AbstractModel{
+public class Poll {
+
+    private Integer id;
 
     @Size(min = 5, max = 64)
     private String title;
@@ -22,7 +22,6 @@ public class Poll extends AbstractModel{
     private int yes;
     private int no;
 
-    @OneToOne
     private User user;
 
     public String getTitle() {
@@ -87,6 +86,14 @@ public class Poll extends AbstractModel{
 
     public void incrementNo() {
         no++;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override

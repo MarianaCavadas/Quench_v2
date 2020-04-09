@@ -1,45 +1,46 @@
 package org.academiadecodigo.charliesangels.services;
 
-import org.academiadecodigo.charliesangels.dao.PollDao;
 import org.academiadecodigo.charliesangels.models.Poll;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 public class PollServiceImpl implements PollService {
 
-    private PollDao pollDao;
+    private Map<Integer, Poll> polls = new ConcurrentHashMap<>();
+    private Integer counter = 0;
 
-    @Autowired
-    public void setPollDao(PollDao pollDao) {
-        this.pollDao = pollDao;
+    public Map<Integer, Poll> getPolls() {
+        return polls;
     }
 
-    @Transactional
+    public void setPolls(Map<Integer, Poll> polls) {
+        this.polls = polls;
+    }
+
     @Override
     public Poll savePoll(Poll poll) {
-        return pollDao.saveOrUpdate(poll);
+        counter++;
+        poll.setId(counter);
+        return polls.put(poll.getId(), poll);
     }
 
     @Override
     public Poll getPoll(Integer id) {
-        return pollDao.findById(id);
+        return polls.get(id);
     }
 
-    @Transactional
     @Override
     public void incrementYes(Integer id) {
-        Poll poll = pollDao.findById(id);
+        Poll poll = polls.get(id);
         poll.incrementYes();
-        pollDao.saveOrUpdate(poll);
     }
 
-    @Transactional
     @Override
     public void incrementNo(Integer id) {
-        Poll poll = pollDao.findById(id);
+        Poll poll = polls.get(id);
         poll.incrementNo();
-        pollDao.saveOrUpdate(poll);
     }
 }

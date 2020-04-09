@@ -6,37 +6,12 @@ import org.academiadecodigo.charliesangels.models.User;
 
 public interface UserService {
 
-    /**
-     *
-     * @param id
-     * @return
-     */
-    User getUser(Integer id);
+    User getUser(String username);
 
-    /**
-     *
-     * @param user
-     */
     User saveUser(User user);
 
-    /**
-     *
-     * @param id
-     */
-    void deleteUser(Integer id) throws UserNotFoundException;
+    void deleteUser(String username) throws UserNotFoundException;
 
-    /**
-     *
-     * @param username
-     * @return
-     */
-    User getUserByUsername(String username);
-
-    /**
-     *
-     * @param id of user
-     * @return id of the poll
-     */
-    Integer getPollId(Integer id);
+    Integer getPollId(String username);
 
 }
