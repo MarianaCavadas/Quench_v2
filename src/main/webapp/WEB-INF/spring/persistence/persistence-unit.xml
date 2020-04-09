@@ -1,3 +1,4 @@
+<!--
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -25,9 +26,9 @@
         <property name="jpaProperties">
             <map>
                 <entry key="hibernate.dialect" value="org.hibernate.dialect.PostgresPlusDialect"/>
-                <!-- Run as create once to initialize the schema -->
+                &lt;!&ndash; Run as create once to initialize the schema &ndash;&gt;
                 <entry key="hibernate.hbm2ddl.auto" value="create"/>
             </map>
         </property>
     </bean>
-</beans>
+</beans>-->

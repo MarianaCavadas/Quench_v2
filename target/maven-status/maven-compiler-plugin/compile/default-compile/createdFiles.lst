@@ -1,2 +1,13 @@
+org\academiadecodigo\charliesangels\models\User.class
+org\academiadecodigo\charliesangels\services\UserServiceImpl.class
+org\academiadecodigo\charliesangels\exception\UserNotFoundException.class
+org\academiadecodigo\charliesangels\services\PollServiceImpl.class
+org\academiadecodigo\charliesangels\services\UserService.class
+org\academiadecodigo\charliesangels\utils\Security.class
+org\academiadecodigo\charliesangels\exception\QuenchException.class
+org\academiadecodigo\charliesangels\models\Poll.class
+org\academiadecodigo\charliesangels\services\LogginServiceImpl.class
+org\academiadecodigo\charliesangels\services\PollService.class
 org\academiadecodigo\charliesangels\SpringBootstrap.class
 org\academiadecodigo\charliesangels\controllers\web\UserController.class
+org\academiadecodigo\charliesangels\services\LogginService.class
