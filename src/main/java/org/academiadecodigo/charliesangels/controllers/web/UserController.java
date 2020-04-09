@@ -19,8 +19,8 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/user")
-    public String showUser(@PathVariable Integer id, Model model) {
+    @RequestMapping(method = RequestMethod.GET, path = "/")
+    public String showUser() {
         return "home";
     }
 }
